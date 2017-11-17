@@ -1,0 +1,49 @@
+MONGO DB
+
+__________
+
+
+$ sudo service mongod start
+
+$ mongo
+
+
+
+MongoDB shell version v3.4.10
+connecting to: mongodb://127.0.0.1:27017
+MongoDB server version: 3.4.10
+Server has startup warnings: 
+
+
+>><<<<<<<<<<<<<<<<<<<< show dbs;
+
+
+admin     0.000GB
+db1       0.000GB
+local     0.000GB
+prueba    0.000GB
+usuarios  0.000GB
+
+><<<<<<<<<<<<<<<<<<< use usuarios;
+
+
+switched to db usuarios
+
+><<<<<<<<<<<<<<<<< show collections;
+
+
+usuario
+
+><<<<<<<<<<<<<<<<<<<< db.usuario.find();
+
+
+{ "_id" : ObjectId("5a02c87dc06cc23a3f9f8ca4"), "clave" : "clave1", "nombre" : "juan", "correo" : "correo@corre.com", "ciudad" : "Madrid" }
+> 
+
+
+
+
+EXPORT BD
+
+ mongoexport --db usuarios --collection usuario --out usuario.json
+

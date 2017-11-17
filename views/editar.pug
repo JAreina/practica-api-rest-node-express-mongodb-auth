@@ -1,0 +1,21 @@
+extends layout.pug
+
+block content
+	section.container
+		h1.header= titulo
+		article.item
+			form.form( method='post', action="/actualizar/"+data._id)
+				input(type="hidden", name="_method", value="PUT")
+				input(type="hidden", name="_id", value=data._id.toString())
+				fieldset
+					div
+						input(type="text", name="nombre", placeholder="nombre", value=data.nombre, required)
+					div
+						input(type="text", name="clave", placeholder="password",value=data.clave, required)
+					div
+						input(type="text", name="correo", placeholder="correo", value=data.correo, required)
+					div
+						input(type="text", name="ciudad", placeholder="ciudad", value=data.ciudad,required)
+					div
+						input.button.edit(type="submit", value="Actualizar")
+		a.button.show(href="/") INICIO

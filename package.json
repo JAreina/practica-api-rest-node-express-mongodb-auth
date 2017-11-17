@@ -1,0 +1,25 @@
+{
+  "name": "api-rest-mongodb-auth",
+  "version": "1.1.0",
+  "description": "app node express mongo-db autenticación ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "supervisor server.js"
+  },
+  "author": "JAreina",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-method-override": "0.0.3",
+    "express-session": "^1.15.6",
+    "mongoose": "^4.13.0",
+    "morgan": "^1.9.0",
+    "pug": "^2.0.0-rc.4",
+    "serve-favicon": "^2.4.5"
+  },
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
+}

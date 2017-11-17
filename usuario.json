@@ -1,0 +1,4 @@
+{"_id":{"$oid":"5a03546dec2f534f053f95a4"},"clave":"dddddddddddd","nombre":"gggggggg","correo":"gggggggg","ciudad":"gg","__v":0}
+{"_id":{"$oid":"5a0356d886b3815562a5a971"},"clave":"ddddddddd","nombre":"ddddddddd","correo":"cccoorrreo","ciudad":"ciuda","__v":0}
+{"_id":{"$oid":"5a0f1b7338337d389f1e1c04"},"clave":"aaaaaa","nombre":"aaaaaaa","correo":"aaaaaa","ciudad":"aaaaaa","__v":0}
+{"_id":{"$oid":"5a0f1bc338337d389f1e1c05"},"clave":"ccc","nombre":"cc","correo":"ccc","ciudad":"ccc","__v":0}
