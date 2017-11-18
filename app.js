@@ -8,9 +8,11 @@ const express = require("express"),
   session = require('express-session'),
   morgan = require("morgan"),
   restFul = require("express-method-override")("_method"), //variable oculta en el front de la aplicacion llamada '_method' para usar metodos de rest post, get , put , delete
+  errors = require('./middlewares/errors'),
   auth= require('./routes/auth-router'),
   routes = require("./routes/usuario-router"),
-  errors = require('./middewares/errors'),
+ 
+ 
   favicon = require("serve-favicon")(`${__dirname}/public/favicon.ico`),
   publicDir = express.static(`${__dirname}/public`), // archivos de carpeta publica
   viewDir = `${__dirname}/views`, // directorio de vistas
@@ -39,8 +41,8 @@ app
   .use(favicon)
   .use(morgan("dev")) // mensajes en la consola de las peticiones al server
   .use(restFul)
+  .use(auth)
   .use(routes)
-  .use(routes)
-  .use(errors.error404);
+  .use(errors. error404);
 
 module.exports = app;

@@ -5,10 +5,21 @@ const conn = require("./auth-schema"); // conexion a mongo
 class AuthModel{
     // si existe usuario
     getUser(user, cb){
-
+            conn
+                 .findOne({
+                     username : user.username,
+                     password : user.password
+                 })
+                 .exec((err,docs)=>{
+                        if(err) throw err;
+                        cb(docs);
+                 })
     }
     setUser(user,cb){
-        
+        conn.create(user, (err)=>{
+            if(err) throw err;
+            cb();
+        })
     }
 }
 

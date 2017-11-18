@@ -7,7 +7,7 @@ const AuthController= require('../controllers/auth-controller'),
 // RUTAS
 // middelawwre paramatros:  PETICION, RESPUESTA Y NEXT
 router
-          .get('/', ac.index )
+        .get('/', ac.index )
         .get('/login', ac.logInGet)
         .post('/login', ac.logInPost)
         .get('/signin', ac.signInGet)

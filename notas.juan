@@ -47,3 +47,6 @@ EXPORT BD
 
  mongoexport --db usuarios --collection usuario --out usuario.json
 
+
+mongoexport --db usuarios --collection autenticacion --out autenticacion.json
+

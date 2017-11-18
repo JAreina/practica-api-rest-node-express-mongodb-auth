@@ -41,13 +41,13 @@ class UsuarioController {
 
     console.log(usuario);
 
-    um.save(usuario, () => res.redirect("/"));
+    um.save(usuario, () => res.redirect("/usuarios"));
   }
 
   delete(req, res, next) {
     let _id = req.params._id;
     console.log("ID A BORRAR" + _id);
-    um.delete(_id, () => res.redirect("/"));
+    um.delete(_id, () => res.redirect("/usuarios"));
   }
 
   addForm(req, res, next) {

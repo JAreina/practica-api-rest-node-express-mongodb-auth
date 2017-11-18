@@ -11,7 +11,7 @@ class Errors{
         res.render("error", { error: err });
       }
       error404(req, res, next) {
-        let err = new Error();
+        var err = new Error();
         err.status = 404;
         err.statusText = "NOT FOUND";
     
