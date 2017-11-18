@@ -5,13 +5,17 @@ const UsuarioModel = require("../models/usuario-model"),
 
 class UsuarioController {
   getTodo(req, res, next) {
+    return (req.session.username)
+    ?
     um.getTodo((err, docs) => {
       console.log(docs + "CONTROLLADOR");
       res.render("index", {
         titulo: "DATOS",
+        user: req.session.username,
         data: docs
       });
-    });
+    })
+    : errors.error401(req,res,next)
   }
 
   // controlador
@@ -19,13 +23,17 @@ class UsuarioController {
     let _id = req.params._id;
     console.log("ID GET UNO " + _id);
 
-    um.getUno(_id, (err, docs) => {
-      console.log(docs + " RECUPERA UNO");
-      res.render("editar", {
-        titulo: "EDITAR USUARIO",
-        data: docs
-      });
-    });
+     return (req.session.username)
+     ?
+         um.getUno(_id, (err, docs) => {
+         console.log(docs + " RECUPERA UNO");
+         res.render("editar", {
+         titulo: "EDITAR USUARIO",
+         user : req.session.username,
+         data: docs
+          });
+        })
+      :  errors.error401(req,res,next)
   }
 
   //si no existe crea, si no actualiza
@@ -41,21 +49,30 @@ class UsuarioController {
 
     console.log(usuario);
 
-    um.save(usuario, () => res.redirect("/usuarios"));
-  }
+    return (req.session.username)
+         ? um.save(usuario, () => res.redirect("/usuarios"))
+         :  errors.error401(req,res,next)
+        }
 
   delete(req, res, next) {
     let _id = req.params._id;
     console.log("ID A BORRAR" + _id);
-    um.delete(_id, () => res.redirect("/usuarios"));
+
+    return (req.session.username)
+    ? um.delete(_id, () => res.redirect("/usuarios"))
+    : errors.error401(req,res,next)
   }
 
   addForm(req, res, next) {
-    res.render("add", {
-      // VISUALIZA LA VISTA ADD.PUG
-      title: "AGREGAR USUARIO"
-    });
-  }
+    return (req.session.username)
+    ?
+      res.render("add", {
+       // VISUALIZA LA VISTA ADD.PUG
+       title: "AGREGAR USUARIO",
+       user : req.session.username
+       })
+    :  errors.error401(req,res,next)
+      }
 
 
 }

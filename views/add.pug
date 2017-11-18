@@ -4,6 +4,10 @@ block content
 	section.container
 		h1.header=title
 		article.item
+			h2 Bienvenido #{user}
+			br
+			a.button.show(href="/logout") Cerrar sesión
+		article.item
 			form.form(method="post", action="/usuarios")
 				fieldset
 					div

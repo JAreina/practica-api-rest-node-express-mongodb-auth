@@ -60,7 +60,11 @@ const errors = require('../middlewares/errors');
 
 
       logOut(req,res,next){
-        
+         req.session.destroy((err)=>{
+                 return (err) 
+                            ? errors.error500(req,res,next) 
+                            : res.redirect('/');
+         });
               }
   }
 

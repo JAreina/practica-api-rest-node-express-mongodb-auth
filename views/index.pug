@@ -6,6 +6,10 @@ block content
 		h1.header= titulo
 		img(src="nasa.jpg")
 		article.item
+			h2 Bienvenido #{user}
+			br
+			a.button.show(href="/logout") Cerrar sesión
+		article.item
 			div
 				a.button.add(href="/agregar") AGREGAR
 			if(data.length)
